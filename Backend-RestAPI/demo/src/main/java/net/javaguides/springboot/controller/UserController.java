@@ -14,41 +14,41 @@ public class UserController {
 
     // build create User REST API
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        User savedUser = userService.createUser(user);
+    public ResponseEntity<User> create(@RequestBody User user){
+        User savedUser = userService.create(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
     // build get user by id REST API
     // http://localhost:8080/api/users/1
     @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId){
-        User user = userService.getUserById(userId);
+    public ResponseEntity<User> retrivebyid(@PathVariable("id") Long userId){
+        User user = userService.retrivebyid(userId);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     // Build Get All Users REST API
     // c
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<User>> retriveall(){
+        List<User> users = userService.retriveall();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     // Build Update User REST API
     @PutMapping("{id}")
     // http://localhost:8080/api/users/1
-    public ResponseEntity<User> updateUser(@PathVariable("id") Long userId,
+    public ResponseEntity<User> update(@PathVariable("id") Long userId,
                                            @RequestBody User user){
         user.setId(userId);
-        User updatedUser = userService.updateUser(user);
+        User updatedUser = userService.update(user);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
     // Build Delete User REST API
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") Long userId){
-        userService.deleteUser(userId);
+    public ResponseEntity<String> delete(@PathVariable("id") Long userId){
+        userService.delete(userId);
         return new ResponseEntity<>("User successfully deleted!", HttpStatus.OK);
     }
 }

@@ -12,22 +12,20 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UsersettingServiceImpl implements UsersettingService {
     private UsersettingRepository usersettingRepository;
-    public Usersetting createusersetting(Usersetting usersetting) {
+    public Usersetting create(Usersetting usersetting) {
         return usersettingRepository.save(usersetting);
     }
-
-
-    public Usersetting getusersettingById(Long userId) {
+    public Usersetting retrivebyid(Long userId) {
         Optional<Usersetting> optionalUser = usersettingRepository.findById(userId);
         return optionalUser.get();
     }
 
-    public List<Usersetting>getAllusersettings() {
+    public List<Usersetting>retriveall() {
         return usersettingRepository.findAll();
     }
 
     @Override
-    public Usersetting updateusersetting(Usersetting usersetting) {
+    public Usersetting update(Usersetting usersetting) {
         Usersetting existingUser = usersettingRepository.findById(usersetting.getId()).get();
         existingUser.setUsername(usersetting.getUsername());
         existingUser.setPassword(usersetting.getPassword());
@@ -37,7 +35,7 @@ public class UsersettingServiceImpl implements UsersettingService {
         return updatedUser;
     }
 
-    public void deleteusersetting(Long userId) {
+    public void delete(Long userId) {
         usersettingRepository.deleteById(userId);
     }
 }

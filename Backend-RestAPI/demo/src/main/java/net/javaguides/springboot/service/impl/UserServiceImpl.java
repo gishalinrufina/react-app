@@ -14,20 +14,20 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
-    public User createUser(User user) {
+    public User create(User user) {
         return userRepository.save(user);
     }
 
 
-    public User getUserById(Long userId) {
+    public User retrivebyid(Long userId) {
         Optional<User> optionalUser = userRepository.findById(userId);
         return optionalUser.get();
     }
 
-    public List<User> getAllUsers() {
+    public List<User> retriveall() {
         return userRepository.findAll();
     }
-    public User updateUser(User user) {
+    public User update(User user) {
         User existingUser = userRepository.findById(user.getId()).get();
         existingUser.setFirstName(user.getFirstName());
         existingUser.setLastName(user.getLastName());
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         return updatedUser;
     }
 
-    public void deleteUser(Long userId) {
+    public void delete(Long userId) {
         userRepository.deleteById(userId);
     }
 }
