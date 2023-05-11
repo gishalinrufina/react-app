@@ -47,6 +47,6 @@ public class MenusettingController {
     @DeleteMapping("{id}")
     public ResponseEntity<String>delete(@PathVariable("id") Long userId){
        menusettingService.delete(userId);
-        return new ResponseEntity<>("User successfully deleted!", HttpStatus.OK);
+        return new ResponseEntity<>("Menu successfully deleted!", HttpStatus.OK);
     }
 }
