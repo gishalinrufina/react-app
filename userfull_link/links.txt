@@ -1,0 +1,2 @@
+https://create-react-app.dev/docs/proxying-api-requests-in-development/
+https://www.binaryboxtuts.com/reactjs-tutorials/how-to-develop-reactjs-crud-app-using-a-rest-api/
