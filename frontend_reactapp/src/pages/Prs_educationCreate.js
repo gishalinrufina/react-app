@@ -4,34 +4,37 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function UsersettingCreate() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobileno, setMobileno] = useState("");
+function Prs_educationCreate() {
+  const [usercode, setUsercode] = useState("");
+  const [ug, setUg] = useState("");
+  const [pg, setPg] = useState("");
+  const [hsc, setHsc] = useState("");
+  const [sslc, setSslc] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/user-setting", {
-        username: username,
-        password: password,
-        email: email,
-        mobileno: mobileno,
+      .post("/api/prs_education", {
+        usercode: usercode,
+        ug: ug,
+        pg: pg,
+        hsc: hsc,
+        sslc: sslc,
       })
       .then(function (response) {
         Swal.fire({
           icon: "success",
-          title: "USer saved successfully!",
+          title: "Eduaction detail saved successfully!",
           showConfirmButton: false,
           timer: 1500,
         });
         setIsSaving(false);
-        setUsername("");
-        setPassword("");
-        setMobileno("");
-        setEmail("");
+        setUsercode("");
+        setUg("");
+        setPg("");
+        setHsc("");
+        setSslc("");
       })
       .catch(function (error) {
         Swal.fire({
@@ -47,65 +50,65 @@ function UsersettingCreate() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Create New User</h2>
+        <h2 className="text-center mt-5 mb-3">Add new education detail</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View All Users
+              View All education detail
             </Link>
           </div>
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label htmlFor="username">User Name</label>
+                <label htmlFor="usercode">User Code</label>
                 <input
                   onChange={(event) => {
-                    setUsername(event.target.value);
+                    setUsercode(event.target.value);
                   }}
-                  value={username}
+                  value={usercode}
                   type="text"
                   className="form-control"
-                  id="username"
-                  name="username"
+                  id="usercode"
+                  name="usercode"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="ug">UG</label>
                 <input
                   onChange={(event) => {
-                    setPassword(event.target.value);
+                    setUg(event.target.value);
                   }}
-                  value={password}
+                  value={ug}
                   type="text"
                   className="form-control"
-                  id="password"
-                  name="password"
+                  id="ug"
+                  name="ug"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">E-Mail</label>
+                <label htmlFor="pg">PG</label>
                 <input
                   onChange={(event) => {
-                    setEmail(event.target.value);
+                    setPg(event.target.value);
                   }}
-                  value={email}
+                  value={pg}
                   type="text"
                   className="form-control"
-                  id="email"
-                  name="email"
+                  id="pg"
+                  name="pg"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="mobileno">Mobile No</label>
+                <label htmlFor="hsc">HSC</label>
                 <input
                   onChange={(event) => {
-                    setMobileno(event.target.value);
+                    setHsc(event.target.value);
                   }}
-                  value={email}
+                  value={hsc}
                   type="text"
                   className="form-control"
-                  id="mobileno"
-                  name="mobileno"
+                  id="hsc"
+                  name="hsc"
                 />
               </div>
               <button
@@ -114,7 +117,7 @@ function UsersettingCreate() {
                 type="button"
                 className="btn btn-outline-primary mt-3"
               >
-                Save User
+                Save Education detail
               </button>
             </form>
           </div>
@@ -124,4 +127,4 @@ function UsersettingCreate() {
   );
 }
 
-export default UsersettingCreate;
+export default Prs_educationCreate;
