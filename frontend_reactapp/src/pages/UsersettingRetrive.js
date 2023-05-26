@@ -13,7 +13,7 @@ function UsersettingRetrive() {
 
   const fetchUsersettingList = () => {
     axios
-      .get("/api/user-setting")
+      .get("/api/personal_resume_management_system/usersetting")
       .then(function (response) {
         setUsersettingList(response.data);
       })
@@ -34,7 +34,7 @@ function UsersettingRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/user-setting/${id}`)
+          .delete(`/api/personal_resume_management_system/usersetting/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",
@@ -76,7 +76,9 @@ function UsersettingRetrive() {
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Email</th>
+                  <th>Paasword</th>
+                  <th>Email ID</th>
+                  <th>Mobile no</th>
                   <th width="240px">Action</th>
                 </tr>
               </thead>
@@ -85,7 +87,9 @@ function UsersettingRetrive() {
                   return (
                     <tr key={key}>
                       <td>{usersetting.username}</td>
+                      <td>{usersetting.password}</td>
                       <td>{usersetting.email}</td>
+                      <td>{usersetting.mobileno}</td>
                       <td>
                         <Link
                           to={`/usersettingview/${usersetting.id}`}

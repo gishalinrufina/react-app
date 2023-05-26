@@ -14,7 +14,7 @@ function UsersettingView() {
 
   useEffect(() => {
     axios
-      .get(`/api/user-setting/${id}`)
+      .get(`/api/personal_resume_management_system/usersetting/${id}`)
       .then(function (response) {
         setUsersetting(response.data);
       })
@@ -37,9 +37,11 @@ function UsersettingView() {
           <div className="card-body">
             <b className="text-muted">User Name:</b>
             <p>{usersetting.username}</p>
-            <b className="text-muted">E-Mail:</b>
+            <b className="text-muted">Password:</b>
+            <p>{usersetting.password}</p>
+            <b className="text-muted">Email:</b>
             <p>{usersetting.email}</p>
-            <b className="text-muted">Mobile N:</b>
+            <b className="text-muted">Mobile No:</b>
             <p>{usersetting.mobileno}</p>
           </div>
         </div>

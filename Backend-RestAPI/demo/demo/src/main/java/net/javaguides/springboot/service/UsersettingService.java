@@ -1,4 +1,5 @@
 package net.javaguides.springboot.service;
+import net.javaguides.springboot.entity.Menusetting;
 import net.javaguides.springboot.entity.Usersetting;
 import java.util.List;
 

@@ -14,7 +14,7 @@ function UsersettingCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/user-setting", {
+      .post("/api/personal_resume_management_system/usersetting", {
         username: username,
         password: password,
         email: email,

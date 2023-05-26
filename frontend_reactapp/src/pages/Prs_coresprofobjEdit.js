@@ -14,7 +14,7 @@ function Prs_coresprofobjEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/prs-coresprofobj/${id}`)
+      .get(`/api/personal_resume_management_system/prs_coresprofobj/${id}`)
       .then(function (response) {
         let prs_coresprofobj = response.data;
         setId(prs_coresprofobj.id);
@@ -36,7 +36,7 @@ function Prs_coresprofobjEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/prs_coresprofobj/${id}`, {
+      .put(`/api/personal_resume_management_system/prs_coresprofobj/${id}`, {
         usercode: usercode,
         correspondence: correspondence,
         profile: profile,

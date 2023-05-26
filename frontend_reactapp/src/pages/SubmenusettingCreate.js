@@ -4,34 +4,32 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function Prs_coresprofobjCreate() {
-  const [usercode, setUsercode] = useState("");
-  const [correspondence, setCorrespondence] = useState("");
-  const [profile, setProfile] = useState("");
-  const [objective, setObjective] = useState("");
+function SubmenusettingCreate() {
+  const [menucode, setMenucode] = useState("");
+  const [submenuname, setSubmenuname] = useState("");
+  const [url, setUrl] = useState("");
+
   const [isSaving, setIsSaving] = useState(false);
 
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_coresprofobj", {
-        usercode: usercode,
-        correspondence: correspondence,
-        profile: profile,
-        objective: objective,
+      .post("/api/personal_resume_management_system/submenusetting", {
+        menucode: menucode,
+        submenuname: submenuname,
+        url: url,
       })
       .then(function (response) {
         Swal.fire({
           icon: "success",
-          title: "Correspondence details saved successfully!",
+          title: "Sub menu details saved successfully!",
           showConfirmButton: false,
           timer: 1500,
         });
         setIsSaving(false);
-        setUsercode("");
-        setCorrespondence("");
-        setProfile("");
-        setObjective("");
+        setMenucode("");
+        setSubmenuname("");
+        setUrl("");
       })
       .catch(function (error) {
         Swal.fire({
@@ -47,74 +45,62 @@ function Prs_coresprofobjCreate() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Add correspondence details</h2>
+        <h2 className="text-center mt-5 mb-3">Add sub menu details</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View all entered details
+              View all submenu details
             </Link>
           </div>
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label htmlFor="usercode">User Code</label>
+                <label htmlFor="menucode">Menu Code</label>
                 <input
                   onChange={(event) => {
-                    setUsercode(event.target.value);
+                    setMenucode(event.target.value);
                   }}
-                  value={usercode}
+                  value={menucode}
                   type="text"
                   className="form-control"
-                  id="usercode"
-                  name="usercode"
+                  id="menucode"
+                  name="menucode"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="correspondence">Correspondence</label>
+                <label htmlFor="submenuname">Sub Menu Name</label>
                 <input
                   onChange={(event) => {
-                    setCorrespondence(event.target.value);
+                    setSubmenuname(event.target.value);
                   }}
-                  value={correspondence}
+                  value={submenuname}
                   type="text"
                   className="form-control"
-                  id="correspondence"
-                  name="correspondence"
+                  id="submenuname"
+                  name="submenuname"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="profile">Profile</label>
+                <label htmlFor="url">URL</label>
                 <input
                   onChange={(event) => {
-                    setProfile(event.target.value);
+                    setUrl(event.target.value);
                   }}
-                  value={profile}
+                  value={url}
                   type="text"
                   className="form-control"
-                  id="profile"
-                  name="profile"
+                  id="url"
+                  name="url"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="objective">Objective</label>
-                <input
-                  onChange={(event) => {
-                    setObjective(event.target.value);
-                  }}
-                  value={objective}
-                  type="text"
-                  className="form-control"
-                  id="objective"
-                  name="objective"
-                />
-              </div>
+
               <button
                 disabled={isSaving}
                 onClick={handleSave}
                 type="button"
                 className="btn btn-outline-primary mt-3"
               >
-                Save correspondence details
+                Save sub menu details
               </button>
             </form>
           </div>
@@ -124,4 +110,4 @@ function Prs_coresprofobjCreate() {
   );
 }
 
-export default Prs_coresprofobjCreate;
+export default SubmenusettingCreate;

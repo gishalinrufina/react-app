@@ -15,7 +15,7 @@ function Prs_educationEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/prs_education/${id}`)
+      .get(`/api/personal_resume_management_system/prs_education/${id}`)
       .then(function (response) {
         let prs_education = response.data;
         setId(prs_education.id);
@@ -38,7 +38,7 @@ function Prs_educationEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/prs_education/${id}`, {
+      .put(`/api/personal_resume_management_system/prs_education/${id}`, {
         usercode: usercode,
         ug: ug,
         pg: pg,
@@ -72,7 +72,7 @@ function Prs_educationEdit() {
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View All Education details
+              View All details
             </Link>
           </div>
           <div className="card-body">
@@ -127,6 +127,19 @@ function Prs_educationEdit() {
                   className="form-control"
                   id="hsc"
                   name="hsc"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="sslc">SSLC</label>
+                <input
+                  onChange={(event) => {
+                    setSslc(event.target.value);
+                  }}
+                  value={sslc}
+                  type="text"
+                  className="form-control"
+                  id="sslc"
+                  name="sslc"
                 />
               </div>
               <button

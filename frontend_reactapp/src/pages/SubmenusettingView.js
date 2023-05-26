@@ -3,18 +3,19 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function MenusettingView() {
+function SubmenusettingView() {
   const [id, setId] = useState(useParams().id);
-  const [menusetting, setMenusetting] = useState({
+  const [submenusetting, setSubmenusetting] = useState({
     menucode: "",
-    menuname: "",
+    submenuname: "",
+    url: "",
   });
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/menusetting/${id}`)
+      .get(`/api/personal_resume_management_system/submenusetting/${id}`)
       .then(function (response) {
-        setMenusetting(response.data);
+        setSubmenusetting(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -24,19 +25,21 @@ function MenusettingView() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Show Menu</h2>
+        <h2 className="text-center mt-5 mb-3">Show Submenu details</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
               {" "}
-              View All Menus
+              View All details
             </Link>
           </div>
           <div className="card-body">
-            <b className="text-muted">Menu code:</b>
-            <p>{menusetting.menucode}</p>
-            <b className="text-muted">Menu name:</b>
-            <p>{menusetting.menuname}</p>
+            <b className="text-muted">Menu Code:</b>
+            <p>{submenusetting.menucode}</p>
+            <b className="text-muted">Sub menu name:</b>
+            <p>{submenusetting.submenuname}</p>
+            <b className="text-muted">URL:</b>
+            <p>{submenusetting.url}</p>
           </div>
         </div>
       </div>
@@ -44,4 +47,4 @@ function MenusettingView() {
   );
 }
 
-export default MenusettingView;
+export default SubmenusettingView;

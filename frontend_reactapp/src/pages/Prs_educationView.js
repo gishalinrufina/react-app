@@ -15,7 +15,7 @@ function Prs_educationView() {
 
   useEffect(() => {
     axios
-      .get(`/api/prs_education/${id}`)
+      .get(`/api/personal_resume_management_system/prs_education/${id}`)
       .then(function (response) {
         setPrs_education(response.data);
       })
@@ -27,12 +27,12 @@ function Prs_educationView() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Show Education details</h2>
+        <h2 className="text-center mt-5 mb-3">Show education details</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
               {" "}
-              View All education details
+              View All details
             </Link>
           </div>
           <div className="card-body">

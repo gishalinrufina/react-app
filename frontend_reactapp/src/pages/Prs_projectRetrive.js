@@ -4,18 +4,18 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function Prs_educationRetrive() {
-  const [prs_educationList, setPrs_educationList] = useState([]);
+function Prs_projectRetrive() {
+  const [prs_projectList, setPrs_projectList] = useState([]);
 
   useEffect(() => {
-    fetchPrs_educationList();
+    fetchPrs_projectList();
   }, []);
 
-  const fetchPrs_educationList = () => {
+  const fetchPrs_projectList = () => {
     axios
-      .get("/api/personal_resume_management_system/prs_education")
+      .get("/api/personal_resume_management_system/prs_project")
       .then(function (response) {
-        setPrs_educationList(response.data);
+        setPrs_projectList(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -34,15 +34,15 @@ function Prs_educationRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/personal_resume_management_system/prs_education/${id}`)
+          .delete(`/api/personal_resume_management_system/prs_project/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",
-              title: "Education details deleted successfully!",
+              title: "Project details deleted successfully!",
               showConfirmButton: false,
               timer: 1500,
             });
-            fetchPrs_educationList();
+            fetchPrs_projectList();
           })
           .catch(function (error) {
             Swal.fire({
@@ -59,11 +59,11 @@ function Prs_educationRetrive() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Education Details </h2>
+        <h2 className="text-center mt-5 mb-3">Project Details </h2>
         <div className="card">
           <div className="card-header">
-            <Link className="btn btn-outline-primary" to="/prs_educationcreate">
-              Add education details
+            <Link className="btn btn-outline-primary" to="/prs_projectcreate">
+              Add Project details to your resume
             </Link>
           </div>
           <div className="card-header">
@@ -76,38 +76,38 @@ function Prs_educationRetrive() {
               <thead>
                 <tr>
                   <th>Usercode</th>
-                  <th>UG</th>
-                  <th>PG</th>
-                  <th>HSC</th>
-                  <th>SSLC</th>
+                  <th>Project Name</th>
+                  <th>Technology used</th>
+                  <th>Description</th>
+                  <th>Responsibility</th>
                   <th width="240px">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {prs_educationList.map((prs_education, key) => {
+                {prs_projectList.map((prs_project, key) => {
                   return (
                     <tr key={key}>
-                      <td>{prs_education.usercode}</td>
-                      <td>{prs_education.ug}</td>
-                      <td>{prs_education.pg}</td>
-                      <td>{prs_education.hsc}</td>
-                      <td>{prs_education.sslc}</td>
+                      <td>{prs_project.usercode}</td>
+                      <td>{prs_project.pname}</td>
+                      <td>{prs_project.techused}</td>
+                      <td>{prs_project.description}</td>
+                      <td>{prs_project.responsibility}</td>
 
                       <td>
                         <Link
-                          to={`/prs_educationview/${prs_education.id}`}
+                          to={`/prs_projectview/${prs_project.id}`}
                           className="btn btn-outline-info mx-1"
                         >
                           Show
                         </Link>
                         <Link
                           className="btn btn-outline-success mx-1"
-                          to={`/prs_educationedit/${prs_education.id}`}
+                          to={`/prs_projectedit/${prs_project.id}`}
                         >
                           Edit
                         </Link>
                         <button
-                          onClick={() => handleDelete(prs_education.id)}
+                          onClick={() => handleDelete(prs_project.id)}
                           className="btn btn-outline-danger mx-1"
                         >
                           Delete
@@ -125,4 +125,4 @@ function Prs_educationRetrive() {
   );
 }
 
-export default Prs_educationRetrive;
+export default Prs_projectRetrive;

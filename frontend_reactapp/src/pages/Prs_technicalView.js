@@ -3,20 +3,19 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function Prs_coresprofobjView() {
+function Prs_technicalView() {
   const [id, setId] = useState(useParams().id);
-  const [prs_coresprofobj, setPrs_coresprofobj] = useState({
+  const [prs_technical, setPrs_technical] = useState({
     usercode: "",
-    correspondence: "",
-    profile: "",
-    objective: "",
+    type: "",
+    description: "",
   });
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_coresprofobj/${id}`)
+      .get(`/api/personal_resume_management_system/prs_technical/${id}`)
       .then(function (response) {
-        setPrs_coresprofobj(response.data);
+        setPrs_technical(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -26,7 +25,7 @@ function Prs_coresprofobjView() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Show Correspondence details</h2>
+        <h2 className="text-center mt-5 mb-3">Show Technical details</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
@@ -36,13 +35,11 @@ function Prs_coresprofobjView() {
           </div>
           <div className="card-body">
             <b className="text-muted">User Code:</b>
-            <p>{prs_coresprofobj.usercode}</p>
-            <b className="text-muted">correspondence:</b>
-            <p>{prs_coresprofobj.correspondence}</p>
-            <b className="text-muted">Profile:</b>
-            <p>{prs_coresprofobj.profile}</p>
-            <b className="text-muted">Objective:</b>
-            <p>{prs_coresprofobj.objective}</p>
+            <p>{prs_technical.usercode}</p>
+            <b className="text-muted">Type:</b>
+            <p>{prs_technical.type}</p>
+            <b className="text-muted">Description:</b>
+            <p>{prs_technical.description}</p>
           </div>
         </div>
       </div>
@@ -50,4 +47,4 @@ function Prs_coresprofobjView() {
   );
 }
 
-export default Prs_coresprofobjView;
+export default Prs_technicalView;

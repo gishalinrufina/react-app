@@ -1,40 +1,53 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function Prs_educationCreate() {
+function Prs_technicalEdit() {
+  const [id, setId] = useState(useParams().id);
   const [usercode, setUsercode] = useState("");
-  const [ug, setUg] = useState("");
-  const [pg, setPg] = useState("");
-  const [hsc, setHsc] = useState("");
-  const [sslc, setSslc] = useState("");
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
+
   const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(`/api/personal_resume_management_system/prs_technical/${id}`)
+      .then(function (response) {
+        let prs_technical = response.data;
+        setId(prs_technical.id);
+        setUsercode(prs_technical.usercode);
+        setType(prs_technical.type);
+        setDescription(prs_technical.description);
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  }, []);
 
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_education", {
+      .put(`/api/personal_resume_management_system/prs_technical/${id}`, {
         usercode: usercode,
-        ug: ug,
-        pg: pg,
-        hsc: hsc,
-        sslc: sslc,
+        type: type,
+        description: description,
       })
       .then(function (response) {
         Swal.fire({
           icon: "success",
-          title: "Education details saved successfully!",
+          title: "Technical Details updated successfully!",
           showConfirmButton: false,
           timer: 1500,
         });
         setIsSaving(false);
-        setUsercode("");
-        setUg("");
-        setPg("");
-        setHsc("");
-        setSslc("");
       })
       .catch(function (error) {
         Swal.fire({
@@ -50,11 +63,11 @@ function Prs_educationCreate() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Add education details</h2>
+        <h2 className="text-center mt-5 mb-3">Edit Technical details</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View all entered details
+              View All details
             </Link>
           </div>
           <div className="card-body">
@@ -73,64 +86,39 @@ function Prs_educationCreate() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="ug">UG</label>
+                <label htmlFor="type">Type</label>
                 <input
                   onChange={(event) => {
-                    setUg(event.target.value);
+                    setType(event.target.value);
                   }}
-                  value={ug}
+                  value={type}
                   type="text"
                   className="form-control"
-                  id="ug"
-                  name="ug"
+                  id="type"
+                  name="type"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="pg">pg</label>
+                <label htmlFor="description">Description</label>
                 <input
                   onChange={(event) => {
-                    setPg(event.target.value);
+                    setDescription(event.target.value);
                   }}
-                  value={pg}
+                  value={description}
                   type="text"
                   className="form-control"
-                  id="pg"
-                  name="pg"
+                  id="description"
+                  name="description"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="hsc">HSC</label>
-                <input
-                  onChange={(event) => {
-                    setHsc(event.target.value);
-                  }}
-                  value={hsc}
-                  type="text"
-                  className="form-control"
-                  id="hsc"
-                  name="hsc"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="sslc">SSLC</label>
-                <input
-                  onChange={(event) => {
-                    setSslc(event.target.value);
-                  }}
-                  value={sslc}
-                  type="text"
-                  className="form-control"
-                  id="sslc"
-                  name="sslc"
-                />
-              </div>
+
               <button
                 disabled={isSaving}
                 onClick={handleSave}
                 type="button"
-                className="btn btn-outline-primary mt-3"
+                className="btn btn-outline-success mt-3"
               >
-                Save education details
+                Update Technical Detail
               </button>
             </form>
           </div>
@@ -140,4 +128,4 @@ function Prs_educationCreate() {
   );
 }
 
-export default Prs_educationCreate;
+export default Prs_technicalEdit;

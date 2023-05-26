@@ -1,40 +1,59 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function Prs_educationCreate() {
+function Prs_experienceEdit() {
+  const [id, setId] = useState(useParams().id);
   const [usercode, setUsercode] = useState("");
-  const [ug, setUg] = useState("");
-  const [pg, setPg] = useState("");
-  const [hsc, setHsc] = useState("");
-  const [sslc, setSslc] = useState("");
+  const [companyname, setCompanyname] = useState("");
+  const [fromdate, setFromdate] = useState("");
+  const [todate, setTodate] = useState("");
+  const [designation, setDesignation] = useState("");
+
   const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(`/api/personal_resume_management_system/prs_experience/${id}`)
+      .then(function (response) {
+        let prs_experience = response.data;
+        setId(prs_experience.id);
+        setUsercode(prs_experience.usercode);
+        setCompanyname(prs_experience.companyname);
+        setFromdate(prs_experience.fromdate);
+        setTodate(prs_experience.todate);
+        setDesignation(prs_experience.designation);
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  }, []);
 
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_education", {
+      .put(`/api/personal_resume_management_system/prs_experience/${id}`, {
         usercode: usercode,
-        ug: ug,
-        pg: pg,
-        hsc: hsc,
-        sslc: sslc,
+        companyname: companyname,
+        fromdate: fromdate,
+        todate: todate,
+        designation: designation,
       })
       .then(function (response) {
         Swal.fire({
           icon: "success",
-          title: "Education details saved successfully!",
+          title: "Menu Details updated successfully!",
           showConfirmButton: false,
           timer: 1500,
         });
         setIsSaving(false);
-        setUsercode("");
-        setUg("");
-        setPg("");
-        setHsc("");
-        setSslc("");
       })
       .catch(function (error) {
         Swal.fire({
@@ -50,17 +69,17 @@ function Prs_educationCreate() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Add education details</h2>
+        <h2 className="text-center mt-5 mb-3">Edit Menu</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View all entered details
+              View All menu
             </Link>
           </div>
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label htmlFor="usercode">User Code</label>
+                <label htmlFor="usercode">User code</label>
                 <input
                   onChange={(event) => {
                     setUsercode(event.target.value);
@@ -73,64 +92,65 @@ function Prs_educationCreate() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="ug">UG</label>
+                <label htmlFor="companyname">Company name</label>
                 <input
                   onChange={(event) => {
-                    setUg(event.target.value);
+                    setCompanyname(event.target.value);
                   }}
-                  value={ug}
+                  value={companyname}
                   type="text"
                   className="form-control"
-                  id="ug"
-                  name="ug"
+                  id="companyname"
+                  name="companyname"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="pg">pg</label>
+                <label htmlFor="fromdate">from Date</label>
                 <input
                   onChange={(event) => {
-                    setPg(event.target.value);
+                    setFromdate(event.target.value);
                   }}
-                  value={pg}
+                  value={fromdate}
                   type="text"
                   className="form-control"
-                  id="pg"
-                  name="pg"
+                  id="fromdate"
+                  name="fromdate"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="hsc">HSC</label>
+                <label htmlFor="todate">To Date</label>
                 <input
                   onChange={(event) => {
-                    setHsc(event.target.value);
+                    setTodate(event.target.value);
                   }}
-                  value={hsc}
+                  value={todate}
                   type="text"
                   className="form-control"
-                  id="hsc"
-                  name="hsc"
+                  id="todate"
+                  name="todate"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="sslc">SSLC</label>
+                <label htmlFor="designation">Designation</label>
                 <input
                   onChange={(event) => {
-                    setSslc(event.target.value);
+                    setDesignation(event.target.value);
                   }}
-                  value={sslc}
+                  value={designation}
                   type="text"
                   className="form-control"
-                  id="sslc"
-                  name="sslc"
+                  id="designation"
+                  name="designation"
                 />
               </div>
+
               <button
                 disabled={isSaving}
                 onClick={handleSave}
                 type="button"
-                className="btn btn-outline-primary mt-3"
+                className="btn btn-outline-success mt-3"
               >
-                Save education details
+                Update Menu Detail
               </button>
             </form>
           </div>
@@ -140,4 +160,4 @@ function Prs_educationCreate() {
   );
 }
 
-export default Prs_educationCreate;
+export default Prs_experienceEdit;

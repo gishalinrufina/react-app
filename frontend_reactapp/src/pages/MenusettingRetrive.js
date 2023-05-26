@@ -13,7 +13,7 @@ function MenusettingRetrive() {
 
   const fetchMenusettingList = () => {
     axios
-      .get("/api/menu-setting")
+      .get("/api/personal_resume_management_system/menusetting")
       .then(function (response) {
         setMenusettingList(response.data);
       })
@@ -34,7 +34,7 @@ function MenusettingRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/menu-setting/${id}`)
+          .delete(`/api/personal_resume_management_system/menusetting/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",

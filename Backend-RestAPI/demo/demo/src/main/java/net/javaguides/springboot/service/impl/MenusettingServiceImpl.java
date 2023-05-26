@@ -12,23 +12,23 @@ import java.util.Optional;
 public class MenusettingServiceImpl implements MenusettingService {
     private MenusettingRespository menusettingRepository;
     @Override
-    public Menusetting create(Menusetting menusetting) {
+    public Menusetting mcreate(Menusetting menusetting) {
         return menusettingRepository.save(menusetting);
     }
 
     @Override
-    public Menusetting retrivebyid(Long userId) {
+    public Menusetting mretrivebyid(Long userId) {
         Optional<Menusetting> optionalemnusetting =menusettingRepository.findById(userId);
         return optionalemnusetting.get();
     }
 
     @Override
-    public List<Menusetting> retriveall() {
+    public List<Menusetting> mretriveall() {
         return menusettingRepository.findAll();
     }
 
     @Override
-    public Menusetting update(Menusetting menusetting) {
+    public Menusetting mupdate(Menusetting menusetting) {
         Menusetting existingmenusetting = menusettingRepository.findById(menusetting.getId()).get();
         existingmenusetting.setMenucode(menusetting.getMenucode());
         existingmenusetting.setMenuname(menusetting.getMenuname());
@@ -37,7 +37,7 @@ public class MenusettingServiceImpl implements MenusettingService {
     }
 
     @Override
-    public void delete(Long userId) {
+    public void mdelete(Long userId) {
         menusettingRepository.deleteById(userId);
     }
 }

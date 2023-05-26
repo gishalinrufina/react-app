@@ -4,24 +4,23 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import Layout from "../components/Layout";
 
-function UsersettingEdit() {
+function SubmenusettingEdit() {
   const [id, setId] = useState(useParams().id);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobileno, setMobileno] = useState("");
+  const [menucode, setMenucode] = useState("");
+  const [submenuname, setSubmenuname] = useState("");
+  const [url, setUrl] = useState("");
+
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/usersetting/${id}`)
+      .get(`/api/personal_resume_management_system/submenusetting/${id}`)
       .then(function (response) {
-        let usersetting = response.data;
-        setId(usersetting.id);
-        setUsername(usersetting.username);
-        setPassword(usersetting.password);
-        setEmail(usersetting.email);
-        setMobileno(usersetting.mobileno);
+        let submenusetting = response.data;
+        setId(submenusetting.id);
+        setMenucode(submenusetting.menucode);
+        setSubmenuname(submenusetting.submenuname);
+        setUrl(submenusetting.url);
       })
       .catch(function (error) {
         Swal.fire({
@@ -36,16 +35,15 @@ function UsersettingEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/personal_resume_management_system/usersetting/${id}`, {
-        username: username,
-        password: password,
-        email: email,
-        mobileno: mobileno,
+      .put(`/api/personal_resume_management_system/submenusetting/${id}`, {
+        menucode: menucode,
+        submenuname: submenuname,
+        url: url,
       })
       .then(function (response) {
         Swal.fire({
           icon: "success",
-          title: "User Details updated successfully!",
+          title: "Submenu Details updated successfully!",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -65,74 +63,62 @@ function UsersettingEdit() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Edit Users</h2>
+        <h2 className="text-center mt-5 mb-3">Edit Sub menu details</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View All users
+              View All details
             </Link>
           </div>
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label htmlFor="name">User Name</label>
+                <label htmlFor="menucode">Menu Code</label>
                 <input
                   onChange={(event) => {
-                    setUsername(event.target.value);
+                    setMenucode(event.target.value);
                   }}
-                  value={username}
+                  value={menucode}
                   type="text"
                   className="form-control"
-                  id="username"
-                  name="username"
+                  id="menucode"
+                  name="menucode"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">Password</label>
+                <label htmlFor="submenuname">Submenuname</label>
                 <input
                   onChange={(event) => {
-                    setPassword(event.target.value);
+                    setSubmenuname(event.target.value);
                   }}
-                  value={password}
+                  value={submenuname}
                   type="text"
                   className="form-control"
-                  id="password"
-                  name="password"
+                  id="submenuname"
+                  name="submenuname"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">E-Mail</label>
+                <label htmlFor="url">URL</label>
                 <input
                   onChange={(event) => {
-                    setEmail(event.target.value);
+                    setUrl(event.target.value);
                   }}
-                  value={email}
+                  value={url}
                   type="text"
                   className="form-control"
-                  id="email"
-                  name="email"
+                  id="url"
+                  name="url"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="mobileno">Mobile No</label>
-                <input
-                  onChange={(event) => {
-                    setMobileno(event.target.value);
-                  }}
-                  value={mobileno}
-                  type="text"
-                  className="form-control"
-                  id="mobileno"
-                  name="mobileno"
-                />
-              </div>
+
               <button
                 disabled={isSaving}
                 onClick={handleSave}
                 type="button"
                 className="btn btn-outline-success mt-3"
               >
-                Update User Detail
+                Update Submenu Detail
               </button>
             </form>
           </div>
@@ -142,4 +128,4 @@ function UsersettingEdit() {
   );
 }
 
-export default UsersettingEdit;
+export default SubmenusettingEdit;
