@@ -64,7 +64,7 @@ function Home() {
         </h2>
         <div className="card">
           <div className="card-header row">
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/usersettingretrive"
@@ -72,7 +72,7 @@ function Home() {
                 User Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/menusettingretrive"
@@ -81,7 +81,7 @@ function Home() {
                 Menu Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/submenusettingretrive"
@@ -90,7 +90,7 @@ function Home() {
                 Sub menu Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/prs_coresprofobjretrive"
@@ -99,7 +99,7 @@ function Home() {
                 Correspondence profile Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/prs_educationretrive"
@@ -108,7 +108,7 @@ function Home() {
                 Education detail Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/prs_experienceretrive"
@@ -117,7 +117,7 @@ function Home() {
                 Experience details Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/prs_projectretrive"
@@ -126,7 +126,7 @@ function Home() {
                 Project details Setting
               </Link>
             </div>
-            <div class="col-sm-2">
+            <div class="col">
               <Link
                 className="btn btn-outline-primary"
                 to="/prs_technicalretrive"
