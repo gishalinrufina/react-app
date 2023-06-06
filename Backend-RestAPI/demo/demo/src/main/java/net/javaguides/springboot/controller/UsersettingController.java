@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @CrossOrigin
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/personal_resume_management_system")
@@ -54,7 +55,7 @@ public class UsersettingController {
     }
 
     @PostMapping("menusetting")
-    public ResponseEntity<Menusetting>create(@RequestBody Menusetting menusetting){
+    public ResponseEntity<Menusetting>createmenusetting(@RequestBody Menusetting menusetting){
         Menusetting savedmenusetting = menusettingService.mcreate(menusetting);
         return new ResponseEntity<>(savedmenusetting, HttpStatus.CREATED);
     }
@@ -62,14 +63,14 @@ public class UsersettingController {
     // http://localhost:8080/api/user-setting/1
 
     @GetMapping("menusetting/{id}")
-    public ResponseEntity<Menusetting> mretrivebyid(@PathVariable("id") Long userId){
+    public ResponseEntity<Menusetting> retrivebyidmenusetting(@PathVariable("id") Long userId){
         Menusetting menusetting = menusettingService.mretrivebyid(userId);
         return new ResponseEntity<>(menusetting, HttpStatus.OK);
     }
     // Build Get All Users REST API
 
     @GetMapping("menusetting")
-    public ResponseEntity<List<Menusetting>>mretriveall(){
+    public ResponseEntity<List<Menusetting>>retriveallmenusetting(){
         List<Menusetting> menusetting = menusettingService.mretriveall();
         return new ResponseEntity<>(menusetting, HttpStatus.OK);
     }
@@ -186,7 +187,7 @@ public ResponseEntity<Prs_coresprofobj>createcorrespondence(@RequestBody Prs_cor
 
     // Build Get All Users REST API
     @GetMapping("prs_education")
-    public ResponseEntity<List<Prs_education>>retrivealeducationl(){
+    public ResponseEntity<List<Prs_education>>retrivealeducation(){
         List<Prs_education> prs_education = prs_educationService.retriveall();
         return new ResponseEntity<>(prs_education, HttpStatus.OK);
     }

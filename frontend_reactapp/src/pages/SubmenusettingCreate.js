@@ -49,7 +49,7 @@ function SubmenusettingCreate() {
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View all submenu details
+              Back
             </Link>
           </div>
           <div className="card-body">

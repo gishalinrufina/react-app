@@ -19,7 +19,7 @@ public class Prs_technicalController {
     }
 
     // build get user by id REST API
-    // http://localhost:8080/api/prs_technical/1
+
     @GetMapping("{id}")
     public ResponseEntity<Prs_technical>retrivebyid(@PathVariable("id") Long userId){
         Prs_technical prs_technical = prs_technicalService.retrivebyid(userId);
@@ -35,7 +35,7 @@ public class Prs_technicalController {
 
     // Build Update User REST API
     @PutMapping("{id}")
-    // http://localhost:8080/api/prs_technical/1
+
     public ResponseEntity<Prs_technical>update(@PathVariable("id") Long userId,
                                                 @RequestBody Prs_technical prs_technical){
         prs_technical.setId(userId);

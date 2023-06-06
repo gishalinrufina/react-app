@@ -5,57 +5,6 @@ import axios from "axios";
 import Layout from "../components/Layout";
 
 function Home() {
-  // const [usersettingList, setUsersettingList] = useState([]);
-
-  // useEffect(() => {
-  //   fetchUsersettingList();
-  // }, []);
-
-  // const fetchUsersettingList = () => {
-  //   axios
-  //     .get("/api/user-setting")
-  //     .then(function (response) {
-  //       setUsersettingList(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const handleDelete = (id) => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       axios
-  //         .delete(`/api/user-setting/${id}`)
-  //         .then(function (response) {
-  //           Swal.fire({
-  //             icon: "success",
-  //             title: "User Details deleted successfully!",
-  //             showConfirmButton: false,
-  //             timer: 1500,
-  //           });
-  //           fetchUsersettingList();
-  //         })
-  //         .catch(function (error) {
-  //           Swal.fire({
-  //             icon: "error",
-  //             title: "An Error Occured!",
-  //             showConfirmButton: false,
-  //             timer: 1500,
-  //           });
-  //         });
-  //     }
-  //   });
-  // };
-
   return (
     <Layout>
       <div className="container">

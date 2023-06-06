@@ -46,7 +46,7 @@ function MenusettingCreate() {
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View menu details
+              Back
             </Link>
           </div>
           <div className="card-body">

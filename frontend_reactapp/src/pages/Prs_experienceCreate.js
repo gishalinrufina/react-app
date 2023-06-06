@@ -54,7 +54,7 @@ function Prs_experienceCreate() {
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View All details
+              Back
             </Link>
           </div>
           <div className="card-body">
