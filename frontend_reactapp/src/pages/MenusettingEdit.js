@@ -63,7 +63,7 @@ function MenusettingEdit() {
         <h2 className="text-center mt-5 mb-3">Edit Menu</h2>
         <div className="card">
           <div className="card-header">
-            <Link className="btn btn-outline-info float-right" to="/">
+            <Link className="btn btn-outline-info float-right" to="/home">
               View All menu
             </Link>
           </div>

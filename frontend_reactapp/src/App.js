@@ -32,12 +32,16 @@ import SubmenusettingRetrive from "./pages/SubmenusettingRetrive";
 import SubmenusettingCreate from "./pages/SubmenusettingCreate";
 import SubmenusettingEdit from "./pages/SubmenusettingEdit";
 import SubmenusettingView from "./pages/SubmenusettingView";
+
 import Home from "./pages/home";
+import LogInPage from "./pages/LogInPage";
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<LogInPage />} />
+
+        <Route path="/home" element={<Home />} />
         <Route
           exact
           path="/usersettingretrive"

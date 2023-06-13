@@ -30,7 +30,7 @@ function Prs_experienceView() {
         <h2 className="text-center mt-5 mb-3">Show Experience details</h2>
         <div className="card">
           <div className="card-header">
-            <Link className="btn btn-outline-info float-right" to="/">
+            <Link className="btn btn-outline-info float-right" to="/home">
               {" "}
               View All details
             </Link>

@@ -67,7 +67,7 @@ function Prs_technicalRetrive() {
             </Link>
           </div>
           <div className="card-header">
-            <Link className="btn btn-outline-primary" to="/">
+            <Link className="btn btn-outline-primary" to="/home">
               Back to Home
             </Link>
           </div>

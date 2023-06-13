@@ -68,7 +68,7 @@ function Prs_coresprofobjEdit() {
         <h2 className="text-center mt-5 mb-3">Edit Correspondence details</h2>
         <div className="card">
           <div className="card-header">
-            <Link className="btn btn-outline-info float-right" to="/">
+            <Link className="btn btn-outline-info float-right" to="/home">
               View All details
             </Link>
           </div>

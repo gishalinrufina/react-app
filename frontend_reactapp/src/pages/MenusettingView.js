@@ -27,7 +27,7 @@ function MenusettingView() {
         <h2 className="text-center mt-5 mb-3">Show Menu</h2>
         <div className="card">
           <div className="card-header">
-            <Link className="btn btn-outline-info float-right" to="/">
+            <Link className="btn btn-outline-info float-right" to="/home">
               {" "}
               View All Menus
             </Link>

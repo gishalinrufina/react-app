@@ -48,7 +48,7 @@ function Prs_technicalCreate() {
         <h2 className="text-center mt-5 mb-3">Add Technical details</h2>
         <div className="card">
           <div className="card-header">
-            <Link className="btn btn-outline-info float-right" to="/">
+            <Link className="btn btn-outline-info float-right" to="/home">
               Back
             </Link>
           </div>

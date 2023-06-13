@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("menu-setting")
 public class MenusettingController {
     private MenusettingService menusettingService;
-    // build create User REST API
+    // build create User REST API]
     @PostMapping
     public ResponseEntity<Menusetting>mcreate(@RequestBody Menusetting menusetting){
         Menusetting savedmenusetting = menusettingService.mcreate(menusetting);
