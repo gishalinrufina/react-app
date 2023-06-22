@@ -15,7 +15,7 @@ function Prs_experienceView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_experience/${id}`)
+      .get(`/api/v1/experience/prs_experience/${id}`)
       .then(function (response) {
         setPrs_experience(response.data);
       })

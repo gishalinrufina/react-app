@@ -15,7 +15,7 @@ function Prs_projectView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_project/${id}`)
+      .get(`/api/v1/project/prs_project/${id}`)
       .then(function (response) {
         setPrs_project(response.data);
       })

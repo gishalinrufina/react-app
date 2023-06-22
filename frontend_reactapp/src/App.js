@@ -35,11 +35,12 @@ import SubmenusettingView from "./pages/SubmenusettingView";
 
 import Home from "./pages/home";
 import LogInPage from "./pages/LogInPage";
+import Login from "./pages/Login";
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<LogInPage />} />
+        <Route exact path="/" element={<Login />} />
 
         <Route path="/home" element={<Home />} />
         <Route

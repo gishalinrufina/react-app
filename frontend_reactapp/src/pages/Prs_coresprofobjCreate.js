@@ -14,7 +14,7 @@ function Prs_coresprofobjCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_coresprofobj", {
+      .post("/api/v1/correspondence/prs_coresprofobj", {
         usercode: usercode,
         correspondence: correspondence,
         profile: profile,

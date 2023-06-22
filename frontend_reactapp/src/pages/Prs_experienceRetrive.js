@@ -13,7 +13,7 @@ function Prs_experienceRetrive() {
 
   const fetchPrs_experienceList = () => {
     axios
-      .get("/api/personal_resume_management_system/prs_experience")
+      .get("/api/v1/experience/prs_experience")
       .then(function (response) {
         setPrs_experienceList(response.data);
       })
@@ -34,7 +34,7 @@ function Prs_experienceRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/personal_resume_management_system/prs_experience/${id}`)
+          .delete(`/api/v1/experience/prs_experience/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",

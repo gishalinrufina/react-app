@@ -15,7 +15,7 @@ function Prs_educationView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_education/${id}`)
+      .get(`/api/v1/education/prs_education/${id}`)
       .then(function (response) {
         setPrs_education(response.data);
       })

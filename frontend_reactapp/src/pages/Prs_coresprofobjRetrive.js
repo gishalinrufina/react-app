@@ -13,7 +13,7 @@ function Prs_coresprofobjRetrive() {
 
   const fetchPrs_coresprofobjList = () => {
     axios
-      .get("/api/personal_resume_management_system/prs_coresprofobj")
+      .get("/api/v1/correspondence/prs_coresprofobj")
       .then(function (response) {
         setPrs_coresprofobjList(response.data);
       })
@@ -35,7 +35,7 @@ function Prs_coresprofobjRetrive() {
       if (result.isConfirmed) {
         axios
           .delete(
-            `/api/personal_resume_management_system/prs_coresprofobj/${id}`
+            `/api/v1/correspondence/prs_coresprofobj/${id}`
           )
           .then(function (response) {
             Swal.fire({

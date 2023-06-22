@@ -12,7 +12,7 @@ function MenusettingView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/menusetting/${id}`)
+      .get(`/api/v1/menu/menusetting/${id}`)
       .then(function (response) {
         setMenusetting(response.data);
       })

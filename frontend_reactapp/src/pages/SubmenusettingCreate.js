@@ -14,7 +14,7 @@ function SubmenusettingCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/submenusetting", {
+      .post("/api/v1/submenu/submenusetting", {
         menucode: menucode,
         submenuname: submenuname,
         url: url,

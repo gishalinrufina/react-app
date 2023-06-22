@@ -15,7 +15,7 @@ function Prs_experienceCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_experience", {
+      .post("/api/v1/experience/prs_experience", {
         usercode: usercode,
         companyname: companyname,
         fromdate: fromdate,

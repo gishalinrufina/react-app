@@ -13,7 +13,7 @@ function Prs_projectRetrive() {
 
   const fetchPrs_projectList = () => {
     axios
-      .get("/api/personal_resume_management_system/prs_project")
+      .get("/api/v1/project/prs_project")
       .then(function (response) {
         setPrs_projectList(response.data);
       })
@@ -34,7 +34,7 @@ function Prs_projectRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/personal_resume_management_system/prs_project/${id}`)
+          .delete(`/api/v1/project/prs_project/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",

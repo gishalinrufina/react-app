@@ -15,7 +15,7 @@ function Prs_educationCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_education", {
+      .post("/api/v1/education/prs_education", {
         usercode: usercode,
         ug: ug,
         pg: pg,

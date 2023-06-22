@@ -13,7 +13,7 @@ function SubmenusettingRetrive() {
 
   const fetchSubmenusettingList = () => {
     axios
-      .get("/api/personal_resume_management_system/submenusetting")
+      .get("/api/v1/submenu/submenusetting")
       .then(function (response) {
         setSubmenusettingList(response.data);
       })
@@ -34,7 +34,7 @@ function SubmenusettingRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/personal_resume_management_system/submenusetting/${id}`)
+          .delete(`/api/v1/submenu/submenusetting/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",

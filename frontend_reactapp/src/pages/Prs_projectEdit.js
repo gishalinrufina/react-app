@@ -16,7 +16,7 @@ function Prs_projectEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_project/${id}`)
+      .get(`/api/v1/project/prs_project/${id}`)
       .then(function (response) {
         let prs_project = response.data;
         setId(prs_project.id);
@@ -39,7 +39,7 @@ function Prs_projectEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/personal_resume_management_system/prs_project/${id}`, {
+      .put(`/api/v1/project/prs_project/${id}`, {
         usercode: usercode,
         pname: pname,
         techused: techused,

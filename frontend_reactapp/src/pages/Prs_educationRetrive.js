@@ -13,7 +13,7 @@ function Prs_educationRetrive() {
 
   const fetchPrs_educationList = () => {
     axios
-      .get("/api/personal_resume_management_system/prs_education")
+      .get("/api/v1/education/prs_education")
       .then(function (response) {
         setPrs_educationList(response.data);
       })
@@ -34,7 +34,7 @@ function Prs_educationRetrive() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`/api/personal_resume_management_system/prs_education/${id}`)
+          .delete(`/api/v1/education/prs_education/${id}`)
           .then(function (response) {
             Swal.fire({
               icon: "success",

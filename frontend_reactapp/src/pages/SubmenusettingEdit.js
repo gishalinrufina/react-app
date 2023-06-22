@@ -14,7 +14,7 @@ function SubmenusettingEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/submenusetting/${id}`)
+      .get(`/api/v1/submenu/submenusetting/${id}`)
       .then(function (response) {
         let submenusetting = response.data;
         setId(submenusetting.id);
@@ -35,7 +35,7 @@ function SubmenusettingEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/personal_resume_management_system/submenusetting/${id}`, {
+      .put(`/api/v1/submenu/submenusetting/${id}`, {
         menucode: menucode,
         submenuname: submenuname,
         url: url,

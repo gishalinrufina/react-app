@@ -15,7 +15,7 @@ function Prs_projectCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_project", {
+      .post("/api/v1/project/prs_project", {
         usercode: usercode,
         pname: pname,
         techused: techused,

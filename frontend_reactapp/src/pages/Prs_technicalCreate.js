@@ -14,7 +14,7 @@ function Prs_technicalCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/prs_technical", {
+      .post("/api/v1/technical/prs_technical", {
         usercode: usercode,
         type: type,
         description: description,

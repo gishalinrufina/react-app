@@ -13,7 +13,7 @@ function MenusettingEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/menusetting/${id}`)
+      .get(`/api/v1/menu/menusetting/${id}`)
       .then(function (response) {
         let menusetting = response.data;
         setId(menusetting.id);
@@ -33,7 +33,7 @@ function MenusettingEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/personal_resume_management_system/menusetting/${id}`, {
+      .put(`/api/v1/menu/menusetting/${id}`, {
         menucode: menucode,
         menuname: menuname,
       })

@@ -16,7 +16,7 @@ function Prs_experienceEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_experience/${id}`)
+      .get(`/api/v1/experience/prs_experience/${id}`)
       .then(function (response) {
         let prs_experience = response.data;
         setId(prs_experience.id);
@@ -39,7 +39,7 @@ function Prs_experienceEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/personal_resume_management_system/prs_experience/${id}`, {
+      .put(`/api/v1/experience/prs_experience/${id}`, {
         usercode: usercode,
         companyname: companyname,
         fromdate: fromdate,

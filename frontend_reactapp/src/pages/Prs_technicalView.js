@@ -13,7 +13,7 @@ function Prs_technicalView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_technical/${id}`)
+      .get(`/api/v1/technical/prs_technical/${id}`)
       .then(function (response) {
         setPrs_technical(response.data);
       })

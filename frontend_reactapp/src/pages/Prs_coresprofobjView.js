@@ -14,7 +14,7 @@ function Prs_coresprofobjView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_coresprofobj/${id}`)
+      .get(`/api/v1/correspondence/prs_coresprofobj/${id}`)
       .then(function (response) {
         setPrs_coresprofobj(response.data);
       })

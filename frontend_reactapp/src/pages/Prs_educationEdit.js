@@ -15,7 +15,7 @@ function Prs_educationEdit() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/prs_education/${id}`)
+      .get(`/api/v1/education/prs_education/${id}`)
       .then(function (response) {
         let prs_education = response.data;
         setId(prs_education.id);
@@ -38,7 +38,7 @@ function Prs_educationEdit() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .put(`/api/personal_resume_management_system/prs_education/${id}`, {
+      .put(`/api/v1/education/prs_education/${id}`, {
         usercode: usercode,
         ug: ug,
         pg: pg,

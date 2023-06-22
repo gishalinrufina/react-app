@@ -13,7 +13,7 @@ function MenusettingCreate() {
   const handleSave = () => {
     setIsSaving(true);
     axios
-      .post("/api/personal_resume_management_system/menusetting", {
+      .post("/api/v1/menu/menusetting", {
         menucode: menucode,
         menuname: menuname,
       })

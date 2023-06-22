@@ -13,7 +13,7 @@ function SubmenusettingView() {
 
   useEffect(() => {
     axios
-      .get(`/api/personal_resume_management_system/submenusetting/${id}`)
+      .get(`/api/v1/submenu/submenusetting/${id}`)
       .then(function (response) {
         setSubmenusetting(response.data);
       })

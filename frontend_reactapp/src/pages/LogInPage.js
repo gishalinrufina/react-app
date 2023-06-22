@@ -1,25 +1,46 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
+import axios from "axios";
+import Layout from "../components/Layout";
+import { setAuthToken } from "../helpers/setAuthToken";
 function LogInPage() {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [usernameOrEmail, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const expectedUserName = "admin";
-  const expectedPassword = "welcome";
-
-  const handleSave = () => {
-    if (username === expectedUserName && password === expectedPassword) {
-      console.log("Login successful");
-      navigate("/home");
-      // <Link to="/home">Link to home page</Link>;
-    } else {
-      console.log("Register");
-      <Link to="/usersettingcreate"> Link to user registration</Link>;
-    }
+  const [isSaving, setIsSaving] = useState(false);
+  const loginPayload = {
+    name: "rufina12",
+    username: "rufina012",
+    email: "rufina252@gmail.com",
+    password: "welcome",
+    role_user: "welcome",
   };
+  const handleSave = () => {
+    setIsSaving(true);
+    axios
+      .post("/api/v1/auth/register", loginPayload)
+      .then(function (response) {
+        Swal.fire({
+          icon: "success",
+          title: "Menu details saved successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setIsSaving(false);
+        //setUsername("");
+        // setMenuname("");
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setIsSaving(false);
+      });
+  };
+
   return (
     <div className="container">
       <h2 className="text-center mt-5 mb-3">
@@ -32,15 +53,15 @@ function LogInPage() {
             onChange={(event) => {
               setUsername(event.target.value);
             }}
-            value={username}
+            value={usernameOrEmail}
             type="text"
             className="form-control"
-            id="username"
-            name="username"
+            id="usernameOrEmail"
+            name="usernameOrEmail"
           />
         </div>
         <div className="form-group">
-          <label htmlFor={password}>Enter password</label>
+          <label htmlFor="password">Enter password</label>
           <input
             onChange={(event) => {
               setPassword(event.target.value);
